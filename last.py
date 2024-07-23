@@ -5,7 +5,6 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
-
 # Use the correct path to the chromedriver executable
 driver_path = r"C:\Users\Abhinav\Desktop\chromedriver-win64\chromedriver.exe"
 service = Service(driver_path)
@@ -24,12 +23,17 @@ time.sleep(1)
 search = web.find_element(By.XPATH, "/html/body/div[1]/div/div[2]/div/div/div/div/div[1]/input")
 search.send_keys("shirt")
 search.send_keys(Keys.RETURN)
-first = WebDriverWait(web, 10).until(
-        EC.presence_of_element_located((By.XPATH, "/html/body/div[2]/div/div[2]/div/div/div/div/div/div[2]/div/div/div/div[1]/div/a/div[1]/div"))
+login = WebDriverWait(web, 10).until(
+        EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/div/div[2]/div/div/div/div/div/div[2]/div/div/div/div[1]/div/a/div[1]/div"))
     )
 
-first.click()
-   
+login.click()
+login = WebDriverWait(web, 10).until(
+        EC.presence_of_element_located((By.XPATH, "/html/body/div[2]/div/div[2]/div/div/div/div[2]/div[2]/div[1]/div[2]/div/div[3]/div/div/div/div[1]/button"))
+    )
+
+login.click()
+
 
     # Wait for user input to close the browser
 input("Press Enter to close the browser...")
